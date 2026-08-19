@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Meerab ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+min-height:100vh;
+overflow:hidden;
+font-family:Georgia,serif;
+color:white;
+background:linear-gradient(135deg,#18000e,#5b1630,#a94369);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.bg{
+position:fixed;
+inset:0;
+pointer-events:none;
+}
+
+.float{
+position:absolute;
+top:-10%;
+animation:fall linear infinite;
+opacity:.8;
+}
+
+@keyframes fall{
+to{
+transform:translateY(120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.card{
+width:min(92%,440px);
+max-height:94vh;
+overflow:auto;
+padding:30px 22px;
+text-align:center;
+border-radius:30px;
+background:#ffffff18;
+border:1px solid #ffffff40;
+backdrop-filter:blur(15px);
+box-shadow:0 25px 70px #0008;
+}
+
+.gift{
+font-size:76px;
+animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+50%{transform:translateY(-10px)}
+}
+
+h1{
+font-size:34px;
+margin:5px 0;
+}
+
+h2{
+margin:12px 0;
+}
+
+.sub{
+letter-spacing:3px;
+text-transform:uppercase;
+opacity:.75;
+font-size:13px;
+}
+
+.line{
+width:70px;
+height:2px;
+background:#ffffff88;
+margin:18px auto;
+}
+
+button{
+border:0;
+border-radius:30px;
+padding:14px 30px;
+background:white;
+color:#a52f59;
+font-weight:bold;
+font-size:17px;
+cursor:pointer;
+box-shadow:0 8px 25px #0004;
+}
+
+#surprise{
+display:none;
+animation:fade .8s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.message{
+margin:10px 0;
+padding:14px;
+border-radius:17px;
+background:#0002;
+line-height:1.6;
+font-size:16px;
+}
+
+.small{
+font-size:12px;
+opacity:.6;
+margin-top:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg" id="bg"></div>
+
+<div class="card">
+
+<div class="gift">🎁</div>
+
+<div class="sub">A special surprise for</div>
+
+<h1>Happy Birthday Meerab ❤️</h1>
+
+<div class="line"></div>
+
+<p>
+Today is all about celebrating someone truly special. ✨
+</p>
+
+<button onclick="openSurprise()">
+Open Your Surprise 💝
+</button>
+
+<div id="surprise">
+
+<div class="line"></div>
+
+<h2>Surprise! 🎉❤️</h2>
+
+<p>
+Meerab, may your birthday be filled with happiness,
+beautiful moments and memories that stay forever. ❤️
+</p>
+
+<div class="message">
+🌙 زندگی میں کچھ لوگ صرف یادیں نہیں،
+خوبصورت احساس بن کر رہ جاتے ہیں۔
+</div>
+
+<div class="message">
+💌 میری دعا ہے کہ تمہاری زندگی کا
+ہر نیا دن پچھلے دن سے زیادہ خوبصورت ہو۔
+</div>
+
+<div class="message">
+✨ جو خواب تم نے دل میں رکھے ہیں،
+اللہ کرے وہ سب ایک ایک کر کے حقیقت بن جائیں۔
+</div>
+
+<div class="message">
+🌹 ہمیشہ ایسے ہی مسکراتی رہو،
+کیونکہ خوش رہنا بھی ایک خوبصورت نعمت ہے۔
+</div>
+
+<div class="message">
+❤️ اور اگر کبھی دن مشکل ہو جائے،
+تو یاد رکھنا کہ اچھے دن دوبارہ ضرور آتے ہیں۔
+</div>
+
+<h2>🎂 Happy Birthday, Meerab! 🎂</h2>
+
+<p>
+May your life always be full of smiles,
+love, peace and beautiful memories. ❤️
+</p>
+
+</div>
+
+<div class="small">
+Made with ❤️ specially for Meerab
+</div>
+
+</div>
+
+<!-- Soft background music -->
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c7d4f6c2e.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function openSurprise(){
+
+document.getElementById("surprise").style.display="block";
+
+const music=document.getElementById("music");
+
+music.volume=0.35;
+
+music.play().catch(function(){
+console.log("Music could not start automatically");
+});
+
+for(let i=0;i<30;i++){
+
+const e=document.createElement("div");
+
+e.textContent=["❤️","💖","✨","🌹","🎉"][Math.floor(Math.random()*5)];
+
+e.style.position="fixed";
+e.style.left=Math.random()*100+"vw";
+e.style.top="55vh";
+e.style.fontSize=18+Math.random()*25+"px";
+e.style.transition="all 1.8s ease-out";
+
+document.body.appendChild(e);
+
+requestAnimationFrame(()=>{
+
+e.style.transform=
+`translate(${(Math.random()-.5)*350}px,
+${-180-Math.random()*350}px)
+rotate(${Math.random()*360}deg)`;
+
+e.style.opacity="0";
+
+});
+
+setTimeout(()=>e.remove(),1900);
+
+}
+
+}
+
+for(let i=0;i<24;i++){
+
+let x=document.createElement("div");
+
+x.className="float";
+
+x.textContent=["❤","♡","✦","🌸"][Math.floor(Math.random()*4)];
+
+x.style.left=Math.random()*100+"vw";
+
+x.style.animationDuration=
+5+Math.random()*7+"s";
+
+x.style.animationDelay=
+-Math.random()*10+"s";
+
+x.style.fontSize=
+14+Math.random()*18+"px";
+
+document.getElementById("bg").appendChild(x);
+
+}
+
+</script>
+
+</body>
+</html>
